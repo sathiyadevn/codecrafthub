@@ -1,0 +1,39 @@
+### 1. Create a New Course (Expect 201 Created)
+POST http://localhost:8080/api/courses
+Content-Type: application/json
+
+{
+  "name": "Java Concurrency",
+  "description": "Threads, Virtual Threads, and Executors",
+  "target_date": "2026-12-31",
+  "status": "In Progress"
+}
+
+### 2. Fetch All Courses (Expect 200 OK)
+GET http://localhost:8080/api/courses
+
+### 3. Fetch Single Course by ID (Expect 200 OK)
+GET http://localhost:8080/api/courses/1
+
+### 4. Update Course (Expect 200 OK)
+PUT http://localhost:8080/api/courses/1
+Content-Type: application/json
+
+{
+  "name": "Java Concurrency Masterclass",
+  "description": "Deep dive into reactive and concurrent Java",
+  "target_date": "2026-11-30",
+  "status": "Completed"
+}
+
+### 5. Get Statistics (Expect 200 OK)
+GET http://localhost:8080/api/courses/stats
+
+### 6. Search Courses by Query (Expect 200 OK)
+GET http://localhost:8080/api/courses/search?q=concurrency
+
+### 7. Delete Course (Expect 204 No Content)
+DELETE http://localhost:8080/api/courses/1
+
+### 8. Verify Course Deleted (Expect 404 Not Found)
+GET http://localhost:8080/api/courses/1
